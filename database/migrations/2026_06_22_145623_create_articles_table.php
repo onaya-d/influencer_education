@@ -12,12 +12,15 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+        {
+            Schema::create('articles', function (Blueprint $table) {
+                $table->id();
+                $table->string('title', 255);          // お知らせタイトル
+                $table->dateTime('posted_date');        // お知らせ投稿日時
+                $table->longText('article_contents');  // お知らせ本文
+                $table->timestamps();                  // created_at & updated_at
+            });
+        }
 
     /**
      * Reverse the migrations.

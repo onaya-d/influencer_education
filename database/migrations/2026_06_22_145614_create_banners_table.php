@@ -12,12 +12,13 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('banners', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+        {
+            Schema::create('banners', function (Blueprint $table) {
+                $table->id();
+                $table->string('image', 255);    // バナー画像のファイル名
+                $table->timestamps();            // created_at & updated_at
+            });
+        }
 
     /**
      * Reverse the migrations.

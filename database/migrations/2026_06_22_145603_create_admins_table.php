@@ -11,13 +11,17 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+   public function up()
+        {
+            Schema::create('admins', function (Blueprint $table) {
+                $table->id();
+                $table->string('name', 255);     // 管理ユーザーネーム
+                $table->string('kana', 255);     // カナ
+                $table->string('email', 255);    // メールアドレス
+                $table->string('password');      // パスワード
+                $table->timestamps();            // created_at & updated_at
+            });
+        }
 
     /**
      * Reverse the migrations.
