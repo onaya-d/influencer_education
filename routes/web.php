@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('user')->namespace('User')->name('user.')->group(function () {
+
+
+    Route::get('/register', [App\Http\Controllers\User\RegisterController::class, 'showRegisterForm'])->name('show.register');
+
+});
