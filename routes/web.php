@@ -22,4 +22,7 @@ Route::prefix('user')->namespace('User')->name('user.')->group(function () {
 
     Route::get('/register', [App\Http\Controllers\User\RegisterController::class, 'showRegisterForm'])->name('show.register');
 
+    // 登録ボタンを押した時のデータ処理用（POST）
+    Route::post('/register', [App\Http\Controllers\User\RegisterController::class, 'register'])->name('register');
+
 });
