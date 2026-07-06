@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('curricurum_progress', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('curriculums_id'); // 2. カリキュラムid
+            $table->integer('users_id');       // 3. ユーザーid
+            $table->tinyInteger('clear_flg');  // 4. クリアフラグ
+            
+            $table->timestamps(); // 5,6. created_at / updated_at
+            
         });
     }
 
