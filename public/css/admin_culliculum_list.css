@@ -1,0 +1,102 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: sans-serif; }
+
+/* ヘッダー */
+header {
+    background-color: #4DD0C4;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header nav a {
+    background-color: #2BA89E;
+    color: white;
+    padding: 8px 16px;
+    margin-right: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+header .logout { color: white; font-weight: bold; text-decoration: none; }
+
+/* メインレイアウト */
+.container { padding: 20px; }
+.back-link { color: #333; text-decoration: none; font-size: 14px; }
+h1 { font-size: 28px; margin: 10px 0 20px; }
+
+/* 新規登録ボタン・学年タブ */
+.top-area { display: flex; align-items: center; margin-bottom: 20px; gap: 20px; }
+.btn-primary {
+    background-color: #2BA89E;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+.grade-tab {
+    display: inline-block;
+    background-color: #4db6d0;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+.grade-tab.active {
+    background-color: #4db6d0;
+    color: white;
+    border: 2px solid white;
+}
+
+/* コンテンツエリア */
+.content-area { display: flex; margin-top: 30px; }
+
+/* サイドバー */
+.sidebar { width: 150px; margin-right: 20px; }
+.sidebar-item {
+    background-color: #4db6d0;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    text-align: center;
+}
+.sidebar-item.middle {
+    background-color: #4dd0ba;
+    color: white;
+}
+.sidebar-item.green {
+    background-color: #4CAF50;
+    color: white;
+}
+/* 授業カード一覧 */
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex: 1;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+}
+.card img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
+.card h3 { margin: 10px 0; font-size: 16px; }
+.card p { font-size: 13px; color: #555; margin: 4px 0; }
+.card-buttons { margin-top: 10px; display: flex; gap: 8px; }
+.btn-secondary {
+    background-color: #2BA89E;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+}
