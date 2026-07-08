@@ -31,3 +31,8 @@ Route::prefix('admin')->group(function () {
     // 配信日時設定
     Route::get('/delivery', [App\Http\Controllers\Admin\DeliveryController::class, 'index'])->name('admin.delivery.index');
 });
+
+// 授業新規登録（POST）
+Route::post('/curriculum', [App\Http\Controllers\Admin\CurriculumController::class, 'store'])->name('admin.curriculum.store');
+// 配信日時設定（POST）
+Route::post('/delivery', [App\Http\Controllers\Admin\DeliveryController::class, 'store'])->name('admin.delivery.store');
