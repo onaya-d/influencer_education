@@ -24,4 +24,10 @@ class CurriculumController extends Controller
     {
         return view('admin.culliculum_edit');
     }
+
+    // 授業新規登録処理
+    public function store(Request $request)
+    {
+        // DB連携後に実装
+    }
 }
