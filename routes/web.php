@@ -1,38 +1,22 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 // 管理者用ルート
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     // 授業一覧
-    Route::get('/curriculum', [App\Http\Controllers\Admin\CurriculumController::class, 'index'])->name('admin.curriculum.index');
-
+    Route::get('/curriculum_list', 'CurriculumController@showCurriculumList')->name('show.curriculum.list');
     // 授業新規登録
-    Route::get('/curriculum/create', [App\Http\Controllers\Admin\CurriculumController::class, 'create'])->name('admin.curriculum.create');
-
+    Route::get('/curriculum_create', 'CurriculumController@showCurriculumCreate')->name('show.curriculum.create');
     // 授業編集
-    Route::get('/curriculum/{id}/edit', [App\Http\Controllers\Admin\CurriculumController::class, 'edit'])->name('admin.curriculum.edit');
-    
+    Route::get('/curriculum_edit/{id}', 'CurriculumController@showCurriculumEdit')->name('show.curriculum.edit');
     // 配信日時設定
-    Route::get('/delivery', [App\Http\Controllers\Admin\DeliveryController::class, 'index'])->name('admin.delivery.index');
-});
+    Route::get('/delivery_edit/{id}', 'DeliveryController@showDeliveryEdit')->name('show.delivery.edit');
 
-// 授業新規登録（POST）
-Route::post('/curriculum', [App\Http\Controllers\Admin\CurriculumController::class, 'store'])->name('admin.curriculum.store');
-// 配信日時設定（POST）
-Route::post('/delivery', [App\Http\Controllers\Admin\DeliveryController::class, 'store'])->name('admin.delivery.store');
+    // 登録処理（POST）
+    Route::post('/curriculum_create', 'CurriculumController@store')->name('curriculum.store');
+    Route::post('/delivery_edit/{id}', 'DeliveryController@store')->name('delivery.store');
+});

@@ -22,7 +22,9 @@
         <a href="#" class="back-link">←戻る</a>
         <h1>授業設定</h1>
 
-        <form>
+        <form method="POST" action="{{ route('admin.curriculum.store') }}" enctype="multipart/form-data">
+            @csrf
+            
             {{-- サムネイル --}}
             <div class="form-group thumbnail-group">
                 <img src="https://via.placeholder.com/120x90" alt="サムネイル" class="thumbnail-preview">

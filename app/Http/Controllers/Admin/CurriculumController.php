@@ -8,21 +8,15 @@ use Illuminate\Http\Request;
 class CurriculumController extends Controller
 {
     // 授業一覧
-    public function index()
+    public function showCurriculumList()
     {
         return view('admin.culliculum_list');
     }
 
     // 授業新規登録画面
-    public function create()
+    public function showCurriculumCreate()
     {
         return view('admin.culliculum_create');
-    }
-
-    // 授業編集画面
-    public function edit($id)
-    {
-        return view('admin.culliculum_edit');
     }
 
     // 授業新規登録処理

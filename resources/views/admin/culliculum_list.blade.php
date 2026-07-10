@@ -23,7 +23,7 @@
         <h1>授業一覧</h1>
 
         <div class="top-area">
-            <a href="#" class="btn-primary">新規登録</a>
+            <a href="{{ route('admin.show.curriculum.create') }}" class="btn-primary">新規登録</a>
             <span class="grade-tab active">小学校１年生</span>
         </div>
 
@@ -54,8 +54,13 @@
                     <p>7月13日　14:00 〜 15:00</p>
                     <p>7月13日　14:00 〜 15:00</p>
                     <div class="card-buttons">
-                        <a href="#" class="btn-secondary">授業内容編集</a>
-                        <a href="#" class="btn-secondary">配信日時編集</a>
+                        <a href="{{ route('admin.show.curriculum.edit', ['id' => 1]) }}" 
+                            class="btn-secondary">授業内容編集
+                        </a>
+
+                        <a href="{{ route('admin.show.delivery.edit', ['id' => 1]) }}" 
+                            class="btn-secondary">配信日時編集
+                        </a>
                     </div>
                 </div>
                 @endfor

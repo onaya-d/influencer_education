@@ -24,7 +24,9 @@
 
         <p class="curriculum-title">授業タイトルが入る</p>
 
-        <form>
+        <form method="POST" action="{{ route('admin.delivery.store') }}">
+            @csrf
+            
             <div class="delivery-list" id="delivery-list">
                 {{-- 1行目（入力済み仮データ） --}}
                 <div class="delivery-row">

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class DeliveryController extends Controller
 {
     // 配信日時設定画面
-    public function index()
+    public function showDeliveryEdit($id)
     {
         return view('admin.delivery');
     }
