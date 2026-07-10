@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('classes_clear_checks', function (Blueprint $table) {
-    $table->id();
-    $table->unsignedBigInteger('users_id');
-    $table->unsignedBigInteger('grade_id');
-    $table->tinyInteger('clear_flg');
-    $table->timestamps();
-        });
+            $table->id();
+            $table->unsignedBigInteger('users_id');
+            $table->unsignedBigInteger('grade_id');
+            $table->tinyInteger('clear_flg');
+            $table->timestamps();
+        }); // 👈 Schema::create の開始位置ときれいに揃いました！
     }
 
     /**
