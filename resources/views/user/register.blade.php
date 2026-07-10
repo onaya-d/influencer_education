@@ -17,12 +17,13 @@
     <div class="row justify-content-center">
         <div class="col-md-7"> 
             <div class="text-right mb-2">
-                <a href="#" class="text-secondary small" style="text-decoration: underline;">ログインはこちら</a>
-            </div>
-
+                <a href="{{ route('show.login') }}" style="
+    color: #666666;
+    text-decoration: underline; /* 下線をつける */
+    font-size: 14px;         /* 文字の大きさ（周りに合わせて調整してください） */">ログインはこちら</a>
+        </div>
             <div class="py-4">
-                <h2 class="text-center mb-5 font-weight-normal" style="color: #555555;">新規会員登録</h2>
-                
+            <h2 style="font-size: 34px; margin-top: 0; margin-bottom: 65px; color: #888888; font-weight: normal; text-align: center; letter-spacing: 2px;">新規会員登録</h2>
                 @if (session('success'))
                     <div class="alert alert-success text-center">{{ session('success') }}</div>
                 @endif

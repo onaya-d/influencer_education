@@ -1,24 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// ユーザー関連のグループ
 Route::prefix('user')->namespace('User')->name('user.')->group(function () {
-
 
     Route::get('/register', [App\Http\Controllers\User\RegisterController::class, 'showRegisterForm'])->name('show.register');
 
@@ -26,3 +22,11 @@ Route::prefix('user')->namespace('User')->name('user.')->group(function () {
     Route::post('/register', [App\Http\Controllers\User\RegisterController::class, 'register'])->name('register');
 
 });
+
+// ログイン画面を表示する（GET）
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('show.login');
+
+// ログインボタンを押したときの処理（POST）
+Route::post('/login', [LoginController::class, 'login']);
