@@ -28,7 +28,9 @@ class LoginController extends Controller
         // 2. ログイン認証
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            
+            // 正常にログインできたら、トップ画面（/home）に遷移させる
+            return redirect('/home'); 
         }
 
         // 3. 認証失敗時

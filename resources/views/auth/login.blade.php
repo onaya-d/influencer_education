@@ -19,7 +19,7 @@
 
             <!-- メールアドレス入力欄（requiredを削除、左寄せ） -->
             <div style="margin-bottom: 5px; display: flex; align-items: center;">
-                <label for="email" style="width: 140px; color: #888888; font-size: 15px; font-weight: 600; flex-shrink: 0;">メールアドレス <span style="color: #e53e3e;">*</span></label>
+               <label for="email" style="width: 140px; color: #888888; font-size: 15px; font-weight: 600; flex-shrink: 0;">メールアドレス</label>
                 <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="example@email.com"
                        style="flex-grow: 1; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 6px; color: #333333; background-color: #ffffff; font-size: 15px; box-sizing: border-box; outline: none; text-align: left;">
             </div>
@@ -33,7 +33,7 @@
 
             <!-- パスワード入力欄（requiredを削除、左寄せ） -->
             <div style="margin-bottom: 5px; display: flex; align-items: center;">
-                <label for="password" style="width: 140px; color: #888888; font-size: 15px; font-weight: 600; flex-shrink: 0;">パスワード <span style="color: #e53e3e;">*</span></label>
+                <label for="email" style="width: 140px; color: #888888; font-size: 15px; font-weight: 600; flex-shrink: 0;">パスワード</label>
                 <input type="password" id="password" name="password" placeholder="••••••••"
                        style="flex-grow: 1; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 6px; color: #333333; background-color: #ffffff; font-size: 15px; box-sizing: border-box; outline: none; text-align: left;">
             </div>

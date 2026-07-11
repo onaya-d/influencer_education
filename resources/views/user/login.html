@@ -1,6 +1,11 @@
 {{-- resources/views/auth/login.blade.php --}}
 
 <div class="login-container" style="text-align: center; margin-top: 50px;">
+    <style>
+        .login-container label::after {
+            content: "" !important;
+        }
+    </style>
     <!-- 新規登録へのリンク（画面右上イメージ） -->
     <div class="register-link" style="text-align: right; margin-right: 10%; margin-bottom: 20px;">
         <a href="{{ route('register') }}">新規会員登録はこちら</a>

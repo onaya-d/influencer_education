@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -30,3 +31,8 @@ Route::get('/login', function () {
 
 // ログインボタンを押したときの処理（POST）
 Route::post('/login', [LoginController::class, 'login']);
+
+use App\Http\Controllers\HomeController; // コントローラーを読み込む記述
+
+// トップ画面（ログイン後に遷移するページ）
+Route::get('/home', [TopController::class, 'index'])->name('home');
