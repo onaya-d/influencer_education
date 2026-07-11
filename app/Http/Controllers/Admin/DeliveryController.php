@@ -16,6 +16,13 @@ class DeliveryController extends Controller
     // 配信日時設定登録処理
     public function store(Request $request)
     {
+        $request->validate([
+            'start_date.*' => 'required',
+            'start_time.*' => 'required',
+            'end_date.*'   => 'required',
+            'end_time.*'   => 'required',
+        ]);
+
         // DB連携後に実装
     }
 }

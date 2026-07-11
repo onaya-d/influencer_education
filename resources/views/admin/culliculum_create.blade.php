@@ -19,70 +19,84 @@
     </header>
 
     <div class="container">
-        <a href="#" class="back-link">←戻る</a>
+        <a href="{{ route('admin.show.curriculum.list') }}" class="back-link">←戻る</a>
         <h1>授業設定</h1>
 
-        <form method="POST" action="{{ route('admin.curriculum.store') }}" enctype="multipart/form-data">
-            @csrf
-            
-            {{-- サムネイル --}}
-            <div class="form-group thumbnail-group">
-                <img src="https://via.placeholder.com/120x90" alt="サムネイル" class="thumbnail-preview">
-                <div class="thumbnail-right">
-                    <p>サムネイル</p>
-                    <input type="file" name="image">
-                </div>
-            </div>
+    <form method="POST" action="{{ route('admin.show.curriculum.create') }}" enctype="multipart/form-data">
+        @csrf
 
-            {{-- 学年 --}}
-            <div class="form-group">
-                <label>学年</label>
-                <select name="grade">
-                    <option>小学校１年生</option>
-                    <option>小学校２年生</option>
-                    <option>小学校３年生</option>
-                    <option>小学校４年生</option>
-                    <option>小学校５年生</option>
-                    <option>小学校６年生</option>
-                    <option>中学校１年生</option>
-                    <option>中学校２年生</option>
-                    <option>中学校３年生</option>
-                    <option>高校１年生</option>
-                    <option>高校２年生</option>
-                    <option>高校３年生</option>
-                </select>
+        {{-- サムネイル --}}
+        <div class="form-group thumbnail-group">
+            <img src="https://via.placeholder.com/120x90" alt="サムネイル" class="thumbnail-preview">
+            <div class="thumbnail-right">
+                <p>サムネイル</p>
+                <input type="file" name="image">
+                @error('image')
+                    <p class="error-msg">サムネイルを選択してください。</p>
+                @enderror
             </div>
+        </div>
 
-            {{-- 授業名 --}}
-            <div class="form-group">
-                <label>授業名</label>
-                <input type="text" name="title">
-            </div>
+        {{-- 学年 --}}
+        <div class="form-group">
+            <label>学年</label>
+            <select name="grade">
+                <option value="">選択してください</option>
+                <option value="1">小学校１年生</option>
+                <option value="2">小学校２年生</option>
+                <option value="3">小学校３年生</option>
+                <option value="4">小学校４年生</option>
+                <option value="5">小学校５年生</option>
+                <option value="6">小学校６年生</option>
+                <option value="7">中学校１年生</option>
+                <option value="8">中学校２年生</option>
+                <option value="9">中学校３年生</option>
+                <option value="10">高校１年生</option>
+                <option value="11">高校２年生</option>
+                <option value="12">高校３年生</option>
+            </select>
+            @error('grade')
+                <p class="error-msg">学年を選択してください。</p>
+            @enderror
+        </div>
 
-            {{-- 動画URL --}}
-            <div class="form-group">
-                <label>動画URL</label>
-                <input type="text" name="movie_url">
-            </div>
+        {{-- 授業名 --}}
+        <div class="form-group">
+            <label>授業名</label>
+            <input type="text" name="title" value="{{ old('title') }}">
+            @error('title')
+                <p class="error-msg">授業名を入力してください。</p>
+            @enderror
+        </div>
 
-            {{-- 授業概要 --}}
-            <div class="form-group">
-                <label>授業概要</label>
-                <textarea name="description"></textarea>
-            </div>
+        {{-- 動画URL --}}
+        <div class="form-group">
+            <label>動画URL</label>
+            <input type="text" name="movie_url" value="{{ old('movie_url') }}">
+            @error('movie_url')
+                <p class="error-msg">動画URLを正しい形式で入力してください。</p>
+            @enderror
+        </div>
 
-            {{-- 常時公開 --}}
-            <div class="form-group checkbox-group">
-                <input type="checkbox" name="is_public" id="is_public">
-                <label for="is_public">常時公開</label>
-            </div>
+        {{-- 授業概要 --}}
+        <div class="form-group">
+            <label>授業概要</label>
+            <textarea name="description">{{ old('description') }}</textarea>
+            @error('description')
+                <p class="error-msg">授業概要を入力してください。</p>
+            @enderror
+        </div>
 
-            {{-- 登録ボタン --}}
-            <div class="form-group btn-area">
-                <button type="submit" class="btn-submit">登録</button>
-            </div>
-        </form>
-    </div>
+        {{-- 常時公開 --}}
+        <div class="form-group checkbox-group">
+            <input type="checkbox" name="is_public" id="is_public">
+            <label for="is_public">常時公開</label>
+        </div>
 
+        {{-- 登録ボタン --}}
+        <div class="form-group btn-area">
+            <button type="submit" class="btn-submit">登録</button>
+        </div>
+    </form>
 </body>
 </html>

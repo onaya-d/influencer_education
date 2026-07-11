@@ -19,7 +19,8 @@
     </header>
 
     <div class="container">
-        <a href="#" class="back-link">←戻る</a>
+        {{-- 戻るボタン（仮） --}}
+        <a href="#">←戻る</a>
         <h1>授業一覧</h1>
 
         <div class="top-area">
