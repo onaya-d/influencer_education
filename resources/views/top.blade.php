@@ -57,7 +57,6 @@
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             background-color: #ffffff;
-            /* スクロールバーを非表示にする設定 */
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -65,19 +64,18 @@
             display: none;
         }
         .slide-item {
-    flex-shrink: 0;
-    width: 100%;
-    height: 250px;
-    scroll-snap-align: start;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #000000;       /* 文字色を「黒」に統一 */
-    background-color: #ffffff; /* 背景色を「白」に統一 */
+            flex-shrink: 0;
+            width: 100%;
+            height: 250px;
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+            background-color: #ffffff;
         }
-
 
         /* ドットナビゲーション */
         .dots-container {
@@ -98,44 +96,49 @@
             background-color: #888888;
         }
 
-        /* お知らせエリアのスタイル */
+        /* お知らせエリア全体のスタイル */
         .news-section {
             text-align: left;
-            margin-top: 20px;
+            margin-top: 40px;
         }
         .news-title {
             font-size: 20px;
             margin-bottom: 15px;
             color: #555555;
         }
+        /* お知らせの枠線スタイル */
+        .news-border-box {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+        }
         .news-table {
             width: 100%;
             border-collapse: collapse;
         }
+        /* 一番下のお知らせだけ線がいらないので調整 */
+        .news-table tr:last-child td {
+            border-bottom: none;
+        }
         .news-table td {
-            padding: 10px 0;
+            padding: 15px 0;
             border-bottom: 1px solid #e2e8f0;
             font-size: 15px;
-        }
-        .news-date {
-            width: 150px;
-            color: #888888;
-        }
-        .news-text {
-            color: #333333;
         }
     </style>
 </head>
 <body>
 
-    <!-- 共通ヘッダー -->
+   <!-- 共通ヘッダー -->
     <div class="header-menu">
         <div class="nav-links">
-            <div>時間割</div>
-            <div>授業進捗</div>
-            <div style="background-color: #00a3a3;">プロフィール設定</div>
+            <a href="/timetable" style="text-decoration: none; color: white;"><div>時間割</div></a>
+            <a href="/progress" style="text-decoration: none; color: white;"><div>授業進捗</div></a>
+            <a href="/profile" style="text-decoration: none; color: white;"><div style="background-color: #00a3a3;">プロフィール設定</div></a>
         </div>
-        <a href="#" class="logout-btn">ログアウト</a>
+        <!-- ログアウトボタン（黒文字） -->
+        <a href="/logout" class="logout-btn" style="color: #000000; text-decoration: none;">ログアウト</a>
     </div>
 
     <div class="container">
@@ -143,7 +146,6 @@
         <!-- バナー画像スライダー -->
         <div class="slider-wrapper">
             <div class="slider-container" id="slider">
-                <!-- あとで画像を使う時は <img src="画像のパス"> に差し替えてください -->
                 <div class="slide-item" id="slide-1">バナー画像</div>
                 <div class="slide-item" id="slide-2">バナー画像</div>
                 <div class="slide-item" id="slide-3">バナー画像</div>
@@ -162,42 +164,34 @@
         <!-- お知らせエリア -->
         <div class="news-section">
             <h2 class="news-title">お知らせ</h2>
-            <table class="news-table">
-                <tr>
-                    <td class="news-date">2023年7月23日</td>
-                    <td class="news-text">ここにお知らせのタイトルがはいります</td>
-                </tr>
-                <tr>
-                    <td class="news-date">2023年7月23日</td>
-                    <td class="news-text">ここにお知らせのタイトルがはいります</td>
-                </tr>
-                <tr>
-                    <td class="news-date">2023年7月23日</td>
-                    <td class="news-text">ここにお知らせのタイトルがはいります</td>
-                </tr>
-                <tr>
-                    <td class="news-date">2023年7月23日</td>
-                    <td class="news-text">ここにお知らせのタイトルがはいります</td>
-                </tr>
-                <tr>
-                    <td class="news-date">2023年7月23日</td>
-                    <td class="news-text">ここにお知らせのタイトルがはいります</td>
-                </tr>
-            </table>
+            
+            <!-- 極限まで隙間を詰めた、外枠だけのシンプルな角丸白ボックス -->
+            <div class="news-border-box" style="border: 1px solid #cbd5e1; border-radius: 8px; padding: 5px 15px; background-color: #ffffff;">
+                <table class="news-table" style="width: 100%; border-collapse: collapse; line-height: 1.2;">
+                    <tr>
+                        <td class="news-date" style="padding: 4px 0; color: #000000; width: 130px; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
+                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                    </tr>
+                    <tr>
+                        <td class="news-date" style="padding: 4px 0; color: #000000; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
+                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                    </tr>
+                    <tr>
+                        <td class="news-date" style="padding: 4px 0; color: #000000; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
+                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                    </tr>
+                    <tr>
+                        <td class="news-date" style="padding: 4px 0; color: #000000; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
+                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                    </tr>
+                    <tr>
+                        <td class="news-date" style="padding: 4px 0; color: #000000; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
+                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                    </tr>
+                </table>
+            </div>
+            
         </div>
 
     </div>
-
-    <!-- ドットをクリックしたときにスライドさせるための簡単なJavaScript -->
-    <script>
-        function scrollToSlide(index) {
-            const slider = document.getElementById('slider');
-            const slideWidth = slider.clientWidth;
-            slider.scrollTo({
-                left: slideWidth * index,
-                behavior: 'smooth'
-            });
-        }
-    </script>
-</body>
 </html>

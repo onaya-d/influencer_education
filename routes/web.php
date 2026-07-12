@@ -36,3 +36,6 @@ use App\Http\Controllers\HomeController; // コントローラーを読み込む
 
 // トップ画面（ログイン後に遷移するページ）
 Route::get('/home', [TopController::class, 'index'])->name('home');
+
+// routes/web.php に追加
+Route::get('/logout', [App\Http\Controllers\TopController::class, 'logout'])->name('logout');
