@@ -9,6 +9,7 @@
 <body>
 
     {{-- ヘッダー（仮） --}}
+    {{-- 共通レイアウト完成後は @extends('admin.layouts.app') と @section('content') に置き換え --}}
     <header>
         <nav>
             <a href="#">授業管理</a>
@@ -44,27 +45,40 @@
                 <div class="sidebar-item green">高校３年生</div>
             </div>
 
-            {{-- 授業カード一覧 --}}
+            {{-- 授業カードー覧 （仮） --}}
             <div class="card-list">
-                @for ($i = 0; $i < 6; $i++)
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x150" alt="授業画像">
-                    <h3>授業タイトル</h3>
-                    <p>7月13日　14:00 〜 15:00</p>
-                    <p>7月13日　14:00 〜 15:00</p>
-                    <p>7月13日　14:00 〜 15:00</p>
-                    <p>7月13日　14:00 〜 15:00</p>
-                    <div class="card-buttons">
-                        <a href="{{ route('admin.show.curriculum.edit', ['id' => 1]) }}" 
-                            class="btn-secondary">授業内容編集
-                        </a>
+            @for ($i = 0; $i < 6; $i++)
+            <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="授業画像">
+            <h3>授業タイトル</h3>
+                <p>7月13日　14:00~15:00</p>
+                <p>7月13日　14:00~15:00</p>
+                <p>7月13日　14:00~15:00</p>
+                <p>7月13日　14:00~15:00</p>
+            <div class="card-buttons">
+                <a href="{{ route('admin.show.curriculum.edit', ['id' => 1]) }}"
+                    class="btn-secondary">授業内容編集
+                </a>
 
-                        <a href="{{ route('admin.show.delivery.edit', ['id' => 1]) }}" 
-                            class="btn-secondary">配信日時編集
-                        </a>
-                    </div>
+                <a href="{{ route('admin.show.delivery.edit', ['id' => 1]) }}"
+                    class="btn-secondary">配信日時編集
+                </a>
                 </div>
-                @endfor
+            </div>
+            @endfor
+
+                {{-- DB連携後は以下を使用 --}}
+                {{-- <div class="card-list"> --}}
+                {{-- @foreach ($curriculums as $curriculum) --}}
+                {{-- <div class="card"> --}}
+                {{--     <img src="{{ asset('storage/images/' . $curriculum->image) }}" alt="授業画像"> --}}
+                {{--     <h3>{{ $curriculum->title }}</h3> --}}
+                {{--     <div class="card-buttons"> --}}
+                {{--         <a href="{{ route('admin.show.curriculum.edit', ['id' => $curriculum->id]) }}" class="btn-secondary">授業内容編集</a> --}}
+                {{--         <a href="{{ route('admin.show.delivery.edit', ['id' => $curriculum->id]) }}" class="btn-secondary">配信日時編集</a> --}}
+                {{--     </div> --}}
+                {{-- </div> --}}
+                {{-- @endforeach --}}
             </div>
         </div>
     </div>

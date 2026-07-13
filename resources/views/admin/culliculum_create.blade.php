@@ -9,6 +9,7 @@
 <body>
 
     {{-- ヘッダー（仮） --}}
+    {{-- 共通レイアウト完成後は @extends('admin.layouts.app') と @section('content') に置き換え --}}
     <header>
         <nav>
             <a href="#">授業管理</a>
@@ -59,6 +60,10 @@
                 <p class="error-msg">学年を選択してください。</p>
             @enderror
         </div>
+        {{-- DB連携後は以下を使用（DBから学年一覧を取得） --}}
+        {{-- @foreach ($grades as $grade) --}}
+        {{--     <option value="{{ $grade->id }}">{{ $grade->name }}</option> --}}
+        {{-- @endforeach --}}
 
         {{-- 授業名 --}}
         <div class="form-group">
@@ -88,10 +93,13 @@
         </div>
 
         {{-- 常時公開 --}}
-        <div class="form-group checkbox-group">
-            <input type="checkbox" name="is_public" id="is_public">
-            <label for="is_public">常時公開</label>
-        </div>
+    <div class="form-group checkbox-group">
+        <input type="checkbox" name="is_public" id="is_public"
+            {{-- DB連携後は以下を使用 --}}
+            {{-- {{ old('is_public') ? 'checked' : '' }} --}}
+        >
+        <label for="is_public">常時公開</label>
+    </div>
 
         {{-- 登録ボタン --}}
         <div class="form-group btn-area">

@@ -9,6 +9,7 @@
 <body>
 
     {{-- ヘッダー（仮） --}}
+    {{-- 共通レイアウト完成後は @extends('admin.layouts.app') と @section('content') に置き換え --}}
     <header>
         <nav>
             <a href="#">授業管理</a>
@@ -23,8 +24,11 @@
         <h1>配信日時設定</h1>
 
         <p class="curriculum-title">授業タイトルが入る</p>
-
+        {{-- DB連携後は以下を使用 --}}
+        {{-- <p class="curriculum-title">{{ $curriculum->title }}</p> --}}
         <form method="POST" action="{{ route('admin.delivery.store', ['id' => 1]) }}">
+        {{-- DB連携後は以下を使用 --}}
+        {{-- <form method="POST" action="{{ route('admin.delivery.store', ['id' => $curriculum->id]) }}"> --}}
             @csrf
 
             @error('start_date.0')
