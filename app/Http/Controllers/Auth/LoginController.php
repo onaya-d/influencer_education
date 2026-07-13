@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Auth\LoginRequest; // 👈 さっき作ったリクエストを読み込む
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -11,19 +11,11 @@ class LoginController extends Controller
     /**
      * ログインボタンが押された時のイベント処理
      */
-    public function login(Request $request)
+    public function login(LoginRequest $request) // 👈 引数を LoginRequest に変更！
     {
-        // 1. バリデーションチェック
-        $credentials = $request->validate([
-            'email'    => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'max:32'],
-        ], [
-            'email.required'    => 'メールアドレスを入力してください。',
-            'email.email'       => '有効なメールアドレスの形式で入力してください。',
-            'password.required' => 'パスワードを入力してください。',
-            'password.min'      => 'パスワードは半角英数字8〜32文字で入力してください。',
-            'password.max'      => 'パスワードは半角英数字8〜32文字で入力してください。',
-        ]);
+        // 1. バリデーション済みのデータを取得する
+        // フォームリクエスト（LoginRequest）側でチェックが終わった安全なデータだけが取得できます
+        $credentials = $request->validated();
 
         // 2. ログイン認証
         if (Auth::attempt($credentials)) {
