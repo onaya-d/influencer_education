@@ -132,12 +132,12 @@
    <!-- 共通ヘッダー -->
 <div class="header-menu">
     <div class="nav-links">
-        <!-- 遷移先をすべて現在のページ「/home」に指定しておきます -->
+        <!-- 遷移先をすべて現在のページに指定 -->
         <a href="/home" style="text-decoration: none; color: white;"><div>時間割</div></a>
         <a href="/home" style="text-decoration: none; color: white;"><div>授業進捗</div></a>
         <a href="/home" style="text-decoration: none; color: white;"><div style="background-color: #00a3a3;">プロフィール設定</div></a>
     </div>
-    <!-- ログアウトボタン（必要に応じてここも調整してください） -->
+    <!-- ログアウトボタン -->
     <a href="/logout" class="logout-btn" style="color: #000000; text-decoration: none;">ログアウト</a>
 </div>
     <div class="container">
@@ -164,14 +164,10 @@
         <div class="news-section">
             <h2 class="news-title">お知らせ</h2>
             
-            <!-- 極限まで隙間を詰めた、外枠だけのシンプルな角丸白ボックス -->
+            <!-- 外枠だけのシンプルな角丸白ボックス -->
             <div class="news-border-box" style="border: 1px solid #cbd5e1; border-radius: 8px; padding: 5px 15px; background-color: #ffffff;">
                 <table class="news-table" style="width: 100%; border-collapse: collapse; line-height: 1.2;">
-                    <!-- 
-                      【変更ポイント①】
-                      各trに「class="announcement-row"」と、仮のお知らせID（data-id="◯"）を設定しました。
-                      また、hover時にクリック可能であることを示すために「style="cursor: pointer;"」を追加しています。
-                    -->
+                    
                     <tr class="announcement-row" data-id="1" style="cursor: pointer;">
                         <td class="news-date" style="padding: 4px 0; color: #000000; width: 130px; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
                         <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
@@ -199,11 +195,6 @@
 
     </div>
 
-    <!-- 
-      【変更ポイント②】
-      画面の最下部に、行がクリックされたときに詳細画面（例: /announcements/ID）に
-      自動的に遷移するJavaScript処理を追記しました。
-    -->
     <script>
         document.querySelectorAll('.announcement-row').forEach(row => {
             row.addEventListener('click', () => {

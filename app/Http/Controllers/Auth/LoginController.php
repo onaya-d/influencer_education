@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest; // 👈 さっき作ったリクエストを読み込む
+use App\Http\Requests\Auth\LoginRequest; 
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -11,7 +11,7 @@ class LoginController extends Controller
     /**
      * ログインボタンが押された時のイベント処理
      */
-    public function login(LoginRequest $request) // 👈 引数を LoginRequest に変更！
+    public function login(LoginRequest $request) 
     {
         // 1. バリデーション済みのデータを取得する
         // フォームリクエスト（LoginRequest）側でチェックが終わった安全なデータだけが取得できます

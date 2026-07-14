@@ -13,7 +13,7 @@
         <!-- タイトル -->
         <h2 style="font-size: 34px; margin-top: 0; margin-bottom: 65px; color: #888888; font-weight: normal; text-align: center; letter-spacing: 2px;">ログイン</h2>
 
-        <!-- novalidate を追加してブラウザ独自のチェックを完全にオフにします -->
+        <!-- novalidate を追加してブラウザ独自のチェックをオフ -->
         <form action="{{ url('/login') }}" method="POST" style="margin: 0; padding: 0;" novalidate>
             @csrf
 
@@ -23,7 +23,7 @@
                 <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="example@email.com"
                        style="flex-grow: 1; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 6px; color: #333333; background-color: #ffffff; font-size: 15px; box-sizing: border-box; outline: none; text-align: left;">
             </div>
-            <!-- メールアドレスのエラーメッセージを表示する場所 -->
+            <!-- メールアドレスのエラーメッセージを表示する -->
             @error('email')
                 <div style="color: #e53e3e; font-size: 13px; margin-bottom: 20px; text-align: left; padding-left: 140px;">{{ $message }}</div>
             @enderror
@@ -37,7 +37,7 @@
                 <input type="password" id="password" name="password" placeholder="••••••••"
                        style="flex-grow: 1; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 6px; color: #333333; background-color: #ffffff; font-size: 15px; box-sizing: border-box; outline: none; text-align: left;">
             </div>
-            <!-- パスワードのエラーメッセージを表示する場所 -->
+            <!-- パスワードのエラーメッセージを表示する -->
             @error('password')
                 <div style="color: #e53e3e; font-size: 13px; margin-bottom: 25px; text-align: left; padding-left: 140px;">{{ $message }}</div>
             @enderror

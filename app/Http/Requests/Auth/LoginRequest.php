@@ -8,7 +8,7 @@ class LoginRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true; // 誰でもログインできるように true にします
+        return true; 
     }
 
     public function rules(): array
