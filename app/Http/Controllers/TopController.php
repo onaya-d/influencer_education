@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// ★ ログアウト処理に必要な設定（Auth）をここに追加しました
+
 use Illuminate\Support\Facades\Auth;
 
 class TopController extends Controller
@@ -13,13 +13,11 @@ class TopController extends Controller
      */
     public function index()
     {
-        // 'top' という名前のビューファイル（画面）を表示する設定です
+        // 'top' という名前のビューファイル（画面）を表示
         return view('top');
     }
 
-    /**
-     * ★ 新しく追加：ログアウト処理を行う
-     */
+    /*ログアウト処理を行う*/
     public function logout(Request $request)
     {
         Auth::logout(); // ログイン状態を解除する
