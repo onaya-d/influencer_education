@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('classes_clear_checks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('kana');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedBigInteger('users_id');
+            $table->unsignedBigInteger('grade_id');
+            $table->tinyInteger('clear_flg');
             $table->timestamps();
-        });
+        }); // 👈 Schema::create の開始位置ときれいに揃いました！
     }
 
     /**
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('classes_clear_checks');
     }
 };
