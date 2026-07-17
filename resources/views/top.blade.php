@@ -198,9 +198,24 @@
     <script>
         document.querySelectorAll('.announcement-row').forEach(row => {
             row.addEventListener('click', () => {
-                const id = row.dataset.id;
-                // クリックされたお知らせのIDを引き継いで遷移する
-                window.location.href = `/announcements/${id}`;
+                // すでに「（準備中）」が表示されている場合は何もしない
+                if (row.querySelector('.pending-msg')) return;
+
+                // 「（準備中）」という文字要素を作る
+                const msg = document.createElement('span');
+                msg.className = 'pending-msg';
+                msg.innerText = ' （準備中）';
+                msg.style.color = '#ff4d4f';       // 目立つ赤色
+                msg.style.fontSize = '12px';       // 少し小さめの文字
+                msg.style.fontWeight = 'bold';
+                msg.style.marginLeft = '10px';     // タイトルとの間隔
+
+                // クリックされた行の「お知らせのタイトル」が入っているセル（.news-text）に文字を追加する
+                const textCell = row.querySelector('.news-text');
+                textCell.appendChild(msg);
+
+                // もし数秒後に消したい場合は、以下の1行のコメントアウト（//）を外してください
+                // setTimeout(() => msg.remove(), 2000);
             });
         });
     </script>
