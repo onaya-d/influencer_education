@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('curricurum_progress', function (Blueprint $table) {
+        Schema::create('curriculum_progress', function (Blueprint $table) {
             $table->id();
             $table->integer('curriculums_id'); // 2. カリキュラムid
             $table->integer('users_id');       // 3. ユーザーid
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curricurum_progress');
+        Schema::dropIfExists('curriculum_progress');
     }
 };
