@@ -25,11 +25,11 @@ class LessonController extends Controller
         // ★ マイグレーション側のカラム名
         DB::table('curriculum_progress')->updateOrInsert(
             [
-                'users_id' => $userId,          // user_id から変更
-                'curriculums_id' => $id,        // curriculum_id から変更
+                'user_id' => $userId,          
+                'curriculum_id' => $id,        
             ],
             [
-                'clear_flg' => 1,               // is_clear から変更
+                'clear_flg' => 1,              
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

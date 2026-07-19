@@ -171,9 +171,9 @@
     <!-- 共通ヘッダー -->
     <div class="header-menu">
         <div class="nav-links">
-            <a href="/home" style="text-decoration: none; color: white;"><div>時間割</div></a>
-            <a href="/home" style="text-decoration: none; color: white;"><div>授業進捗</div></a>
-            <a href="/home" style="text-decoration: none; color: white;"><div style="background-color: #00a3a3;">プロフィール設定</div></a>
+            <a href="{{ url()->current() }}" style="text-decoration: none; color: white;"><div>時間割</div></a>
+            <a href="{{ url()->current() }}" style="text-decoration: none; color: white;"><div>授業進捗</div></a>
+            <a href="{{ url()->current() }}" style="text-decoration: none; color: white;"><div style="background-color: #00a3a3;">プロフィール設定</div></a>
         </div>
         <a href="/logout" class="logout-btn" style="color: #000000; text-decoration: none;">ログアウト</a>
     </div>
