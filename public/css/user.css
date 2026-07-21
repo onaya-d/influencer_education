@@ -1,0 +1,182 @@
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#ffffff;
+}
+
+/* =========================
+   ヘッダー
+========================= */
+header{
+    background:#f26b4f;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.menu a{
+    background:#66d9ef;
+    color:#fff;
+    text-decoration:none;
+    padding:8px 18px;
+    border-radius:20px;
+    margin-right:10px;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    background:#4ec6e7;
+}
+
+.logout{
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* =========================
+   メイン
+========================= */
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+/* 戻る */
+.back-link{
+    display:inline-block;
+    margin-bottom:20px;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* =========================
+   ユーザー情報
+========================= */
+.user-info{
+    display:flex;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.profile-image{
+    width:70px;
+    height:110px;
+    object-fit:cover;
+    border:1px solid #ccc;
+    padding:3px;
+    background:#fff;
+    border-radius:0;
+    display:block;
+    margin-right:20px;
+}
+
+.user-name{
+    margin:0 0 10px;
+    font-size:30px;
+}
+
+.grade-text{
+    margin:0;
+    font-size:20px;
+}
+
+.grade-badge{
+    display:inline-block;
+    background:#7dd8f5;
+    color:#fff;
+    padding:5px 15px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+/* =========================
+   学年一覧
+========================= */
+.grade-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.grade-card{
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 10px 15px;
+    box-shadow: none;
+}
+
+.grade-title{
+    display:inline-block;
+    color:#fff;
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:bold;
+    margin-bottom:15px;
+    line-height:1.4;
+}
+
+/* 小学生 */
+.grade-title.elementary{
+    background:#8fdff0;
+}
+
+/* 中学生 */
+.grade-title.junior{
+    background:#66d9d9;
+}
+
+/* 高校生 */
+.grade-title.high{
+    background:#8bcf4b;
+}
+
+.curriculum-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:4px;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.curriculum-item:last-child{
+    border-bottom:none;
+}
+
+.completed{
+    color:red;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.completed{
+    color:red;
+    font-size:12px;
+    font-weight:bold;
+    width:50px;
+    flex-shrink:0;
+}
+
+.completed-space{
+    width:50px;
+    flex-shrink:0;
+}
+
+.curriculum-title{
+    font-size:14px;
+}
+
+.grade-label {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px 8px 0 0;
+    font-size: 18px;
+}

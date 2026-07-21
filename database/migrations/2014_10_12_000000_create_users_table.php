@@ -13,15 +13,31 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+       Schema::create('users', function (Blueprint $table) {
+    $table->id();
+
+    // ユーザー名
+    $table->string('name');
+
+    // ユーザー名カナ
+    $table->string('name_kana');
+
+    // メールアドレス
+    $table->string('email')->unique();
+
+    // パスワード
+    $table->string('password');
+
+    // プロフィール画像
+    $table->string('profile_image')->nullable();
+
+    // 学年ID
+    $table->unsignedBigInteger('grade_id');
+
+    $table->rememberToken();
+
+    $table->timestamps();
+});
     }
 
     /**
