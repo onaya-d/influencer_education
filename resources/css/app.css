@@ -1,0 +1,122 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc;
+    color: #888888;
+}
+
+/* 共通ヘッダー */
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f06343;
+    padding: 15px 30px;
+}
+.nav-links div {
+    display: inline-block;
+    background-color: #008b8b;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+.logout-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* メインコンテナ */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* 戻るボタン */
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #555555;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 2カラムレイアウト */
+.content-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+/* 動画エリア */
+.video-container {
+    flex: 1.5;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 右側ボタンエリア */
+.action-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+/* 受講しましたボタン */
+.submit-btn {
+    background-color: #f06343;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* 下部エリア */
+.info-section {
+    margin-top: 20px;
+}
+.category-tag {
+    display: inline-block;
+    background-color: #7dd3fc;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.lesson-title {
+    font-size: 24px;
+    color: #333333;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+}
+.lesson-description-title {
+    font-size: 16px;
+    color: #555555;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.lesson-description-text {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+}
