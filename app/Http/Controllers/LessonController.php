@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Curriculum;
 use Illuminate\Support\Facades\DB; 
+use App\Models\CurriculumProgress;
+
 
 class LessonController extends Controller
 {
@@ -23,15 +25,13 @@ class LessonController extends Controller
         $userId = auth()->id() ?? 1;
 
         // ★ マイグレーション側のカラム名
-        DB::table('curriculum_progress')->updateOrInsert(
+        CurriculumProgress::updateOrCreate(
             [
                 'user_id' => $userId,          
                 'curriculum_id' => $id,        
             ],
             [
                 'clear_flg' => 1,              
-                'created_at' => now(),
-                'updated_at' => now(),
             ]
         );
 

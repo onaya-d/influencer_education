@@ -31,9 +31,9 @@ body {
 
 /* メインコンテナ */
 .container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 20px;
+    max-width: 1000px; 
+    margin: 20px 0 20px 30px; 
+    padding: 0;
 }
 
 /* 戻るボタン */
@@ -89,34 +89,52 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* 下部エリア */
+/* --- 下部：説明エリア --- */
 .info-section {
-    margin-top: 20px;
+    margin-top: 25px;
 }
+
+/* カテゴリタグ（水色・角丸バッジ） */
 .category-tag {
     display: inline-block;
-    background-color: #7dd3fc;
-    color: white;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 14px;
+    background-color: #7dd3fc; /* 明るい水色 */
+    color: #ffffff;
+    padding: 4px 14px;
+    border-radius: 15px; /* 丸みをつける */
+    font-size: 13px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
+
+/* 授業タイトル */
 .lesson-title {
-    font-size: 24px;
-    color: #333333;
-    margin: 0 0 15px 0;
+    font-size: 22px;
+    color: #1e293b; /* 濃いめの文字色 */
+    margin: 0 0 16px 0;
     font-weight: bold;
+    line-height: 1.3;
 }
+
+/* 「講座内容」の見出し */
 .lesson-description-title {
-    font-size: 16px;
-    color: #555555;
+    font-size: 15px;
+    color: #475569;
     font-weight: bold;
     margin-bottom: 8px;
 }
+
+/* 講座内容の本文 */
 .lesson-description-text {
     font-size: 14px;
-    color: #666666;
+    color: #64748b;
     line-height: 1.6;
+    margin-top: 0;
+}
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }

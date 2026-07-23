@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Curriculum;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // 配信画面用の初期データを登録（runのカッコの中に書きます）
+        Curriculum::create([
+            'id'          => 1,
+            'category'    => '小学校1年生',
+            'title'       => '授業タイトル',
+            'description' => "ここに講座の説明等が入ります\nテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト\nテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        ]);
     }
 }
