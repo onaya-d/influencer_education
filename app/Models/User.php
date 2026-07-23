@@ -12,33 +12,43 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
+        'name_kana',
         'email',
         'password',
+        'profile_image',
+        'grade_id',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * 受講進捗
+     */
+    public function curriculumProgresses()
+    {
+        return $this->hasMany(
+            CurriculumProgress::class,
+            'users_id'
+        );
+    }
+
+    /**
+     * 所属学年
+     */
+    public function grade()
+    {
+        return $this->belongsTo(
+            Grade::class,
+            'grade_id'
+        );
+    }
 }
