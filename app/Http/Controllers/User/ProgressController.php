@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Grade;
 use App\Models\User;
+use App\Models\CurriculumProgress;
 
 class ProgressController extends Controller
 {
@@ -23,10 +24,7 @@ class ProgressController extends Controller
         $grades = Grade::with('curriculums')->get();
 
         // 受講済みカリキュラムID一覧
-        $completedCurriculums = $user->curriculumProgresses
-            ->where('clear_flg', 1)
-            ->pluck('curriculums_id')
-            ->toArray();
+       $completedCurriculums = CurriculumProgress::getCompletedCurriculumIds($user->id);
 
         return view('user.progress', [
             'user' => $user,

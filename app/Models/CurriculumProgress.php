@@ -14,6 +14,14 @@ class CurriculumProgress extends Model
         'clear_flg',
     ];
 
+    public static function getCompletedCurriculumIds($userId)
+{
+    return self::where('users_id', $userId)
+        ->where('clear_flg', 1)
+        ->pluck('curriculums_id')
+        ->toArray();
+}
+
     /**
      * ユーザー
      */
