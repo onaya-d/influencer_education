@@ -21,4 +21,24 @@ class StoreCurriculumRequest extends FormRequest
             'description' => 'required',
         ];
     }
+
+    // エラーメッセージ
+    public function messages()
+    {
+        return [
+            // サムネイルに関するエラーメッセージ
+            'image.required' => 'サムネイルを選択してください',
+            'image.image'    => 'サムネイルの形式はjpeg・png・jpgを選択してください',
+            'image.mimes'    => 'サムネイルの形式はjpeg・png・jpgを選択してください',
+            'image.max'      => 'サムネイルは2MB以内のサイズを選択してください',
+
+            // 授業名に関するエラーメッセージ
+            'title.required' => '授業名を入力してください',
+            'title.max'      => '授業名は255文字以内で入力してください',
+
+            // 動画URLに関するエラーメッセージ
+            'movie_url.required' => '動画URLを入力してください',
+            'movie_url.url'      => '動画URLを正しい形式で入力してください',
+        ];
+    }
 }

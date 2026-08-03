@@ -55,6 +55,7 @@ h1 { font-size: 28px; margin: 10px 0 20px; }
 
 /* サイドバー */
 .sidebar { width: 150px; margin-right: 20px; }
+/* 小学生 */
 .sidebar-item {
     background-color: #4db6d0;
     border: none;
@@ -66,10 +67,12 @@ h1 { font-size: 28px; margin: 10px 0 20px; }
     font-size: 13px;
     text-align: center;
 }
+/* 中学生 */
 .sidebar-item.middle {
     background-color: #4dd0ba;
     color: white;
 }
+/* 高校生 */
 .sidebar-item.green {
     background-color: #4CAF50;
     color: white;

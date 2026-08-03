@@ -14,10 +14,10 @@ class StoreDeliveryRequest extends FormRequest
     public function rules()
     {
         return [
-            'start_date.*' => 'required',
-            'start_time.*' => 'required',
-            'end_date.*'   => 'required',
-            'end_time.*'   => 'required',
+            'start_date.0' => 'required',
+            'start_time.0' => 'required',
+            'end_date.0'   => 'required',
+            'end_time.0'   => 'required',
         ];
     }
 }

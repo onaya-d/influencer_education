@@ -28,12 +28,12 @@
 
         {{-- サムネイル --}}
         <div class="form-group thumbnail-group">
-            <img src="https://via.placeholder.com/120x90" alt="サムネイル" class="thumbnail-preview">
+            <img id="thumbnail-preview" src="https://via.placeholder.com/120x90" alt="サムネイル"               class="thumbnail-preview">
             <div class="thumbnail-right">
                 <p>サムネイル</p>
-                <input type="file" name="image">
+                <input type="file" name="image" id="image-input">
                 @error('image')
-                    <p class="error-msg">サムネイルを選択してください。</p>
+                    <p class="error-msg">{{ $message }}</p>
                 @enderror
             </div>
         </div>
@@ -43,18 +43,18 @@
             <label>学年</label>
             <select name="grade">
                 <option value="">選択してください</option>
-                <option value="1">小学校１年生</option>
-                <option value="2">小学校２年生</option>
-                <option value="3">小学校３年生</option>
-                <option value="4">小学校４年生</option>
-                <option value="5">小学校５年生</option>
-                <option value="6">小学校６年生</option>
-                <option value="7">中学校１年生</option>
-                <option value="8">中学校２年生</option>
-                <option value="9">中学校３年生</option>
-                <option value="10">高校１年生</option>
-                <option value="11">高校２年生</option>
-                <option value="12">高校３年生</option>
+                <option value="1" {{ old('grade') == '1' ? 'selected' : '' }}>小学校１年生</option>
+                <option value="2" {{ old('grade') == '2' ? 'selected' : '' }}>小学校２年生</option>
+                <option value="3" {{ old('grade') == '3' ? 'selected' : '' }}>小学校３年生</option>
+                <option value="4" {{ old('grade') == '4' ? 'selected' : '' }}>小学校４年生</option>
+                <option value="5" {{ old('grade') == '5' ? 'selected' : '' }}>小学校５年生</option>
+                <option value="6" {{ old('grade') == '6' ? 'selected' : '' }}>小学校６年生</option>
+                <option value="7" {{ old('grade') == '7' ? 'selected' : '' }}>中学校１年生</option>
+                <option value="8" {{ old('grade') == '8' ? 'selected' : '' }}>中学校２年生</option>
+                <option value="9" {{ old('grade') == '9' ? 'selected' : '' }}>中学校３年生</option>
+                <option value="10" {{ old('grade') == '10' ? 'selected' : '' }}>高校１年生</option>
+                <option value="11" {{ old('grade') == '11' ? 'selected' : '' }}>高校２年生</option>
+                <option value="12" {{ old('grade') == '12' ? 'selected' : '' }}>高校３年生</option>
             </select>
             @error('grade')
                 <p class="error-msg">学年を選択してください。</p>
@@ -62,7 +62,7 @@
         </div>
         {{-- DB連携後は以下を使用（DBから学年一覧を取得） --}}
         {{-- @foreach ($grades as $grade) --}}
-        {{--     <option value="{{ $grade->id }}">{{ $grade->name }}</option> --}}
+        {{--     <option value="{{ $grade->id }}" {{ old('grade') == $grade->id ? 'selected' : '' }}>{{ $grade->name }} </option> --}}
         {{-- @endforeach --}}
 
         {{-- 授業名 --}}
@@ -70,7 +70,7 @@
             <label>授業名</label>
             <input type="text" name="title" value="{{ old('title') }}">
             @error('title')
-                <p class="error-msg">授業名を入力してください。</p>
+                <p class="error-msg">{{ $message }}</p>
             @enderror
         </div>
 
@@ -79,7 +79,7 @@
             <label>動画URL</label>
             <input type="text" name="movie_url" value="{{ old('movie_url') }}">
             @error('movie_url')
-                <p class="error-msg">動画URLを正しい形式で入力してください。</p>
+                <p class="error-msg">{{ $message }}</p>
             @enderror
         </div>
 
@@ -106,5 +106,8 @@
             <button type="submit" class="btn-submit">登録</button>
         </div>
     </form>
+
+    <script src="{{ asset('js/admin_culliculum_create.js') }}"></script>
+
 </body>
 </html>
