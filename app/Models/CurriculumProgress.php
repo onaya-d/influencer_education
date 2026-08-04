@@ -9,13 +9,19 @@ class CurriculumProgress extends Model
 {
     use HasFactory;
 
-    // 対応するテーブル名を指定
     protected $table = 'curriculum_progress';
 
-    // 一括保存を許可するカラム
     protected $fillable = [
         'user_id',
         'curriculum_id',
         'clear_flg',
     ];
+
+    public static function getCompletedCurriculumIds(int $userId): array
+    {
+        return self::where('user_id', $userId)
+            ->where('clear_flg', 1)
+            ->pluck('curriculum_id')
+            ->toArray();
+    }
 }
