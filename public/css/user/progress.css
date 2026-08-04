@@ -6,7 +6,7 @@ body {
     margin: 0;
     background: #ffffff;
     color: #111111;
-    font-family: Arial, "Yu Gothic", "Meiryo", sans-serif;
+    font-family: Arial, "Yu Gothic", Meiryo, sans-serif;
 }
 
 a {
@@ -14,17 +14,12 @@ a {
     text-decoration: none;
 }
 
-
-/* ========================================
-   ヘッダー
-======================================== */
-
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 70px;
-    padding: 0 42px;
+    height: 64px;
+    padding: 0 40px;
     background: #f8684c;
 }
 
@@ -35,30 +30,29 @@ a {
 }
 
 .header-button {
-    display: inline-block;
-    padding: 7px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0 17px;
     border-radius: 8px;
     background: #079eaa;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
+    white-space: nowrap;
+    cursor: default;
 }
 
 .profile-button {
-    padding-right: 12px;
-    padding-left: 12px;
-    font-size: 12px;
+    font-size: 11px;
+    cursor: pointer;
 }
 
 .logout-link {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
 }
-
-
-/* ========================================
-   ページ全体
-======================================== */
 
 .progress-page {
     width: 100%;
@@ -72,11 +66,6 @@ a {
     font-size: 14px;
 }
 
-
-/* ========================================
-   ユーザー情報
-======================================== */
-
 .user-area {
     display: flex;
     align-items: center;
@@ -84,8 +73,9 @@ a {
 }
 
 .profile-image-area {
-    width: 96px;
-    height: 126px;
+    width: 90px;
+    height: 116px;
+    overflow: hidden;
     border: 1px solid #cccccc;
     background: #ffffff;
 }
@@ -94,7 +84,7 @@ a {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .user-information {
@@ -102,8 +92,8 @@ a {
 }
 
 .progress-title {
-    margin: 0 0 10px;
-    font-size: 24px;
+    margin: 0 0 12px;
+    font-size: 22px;
     font-weight: normal;
 }
 
@@ -113,31 +103,26 @@ a {
 }
 
 .current-grade-label {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .current-grade-badge {
     display: inline-block;
     margin-left: 12px;
-    padding: 6px 18px;
+    padding: 7px 18px;
     border-radius: 6px;
     background: #78d7e4;
     color: #ffffff;
     font-size: 14px;
 }
 
-
-/* ========================================
-   学年一覧
-======================================== */
-
 .grade-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 100px;
-    row-gap: 70px;
     width: 760px;
     margin: 34px auto 0;
+    column-gap: 100px;
+    row-gap: 62px;
 }
 
 .grade-item {
@@ -169,11 +154,6 @@ a {
     background: #79c94f;
 }
 
-
-/* ========================================
-   授業タイトル
-======================================== */
-
 .curriculum-list {
     text-align: left;
 }
@@ -187,7 +167,7 @@ a {
 
 .completed-area {
     display: inline-block;
-    width: 42px;
+    width: 48px;
     flex-shrink: 0;
     text-align: right;
 }
@@ -195,6 +175,7 @@ a {
 .completed-label {
     color: #ff0000;
     font-size: 11px;
+    font-weight: bold;
 }
 
 .curriculum-title {
@@ -204,33 +185,14 @@ a {
     line-height: 1.8;
 }
 
-.empty-message {
-    margin: 0;
-    font-size: 12px;
-    text-align: center;
-}
-
-
-/* ========================================
-   画面幅が狭い場合
-======================================== */
-
 @media screen and (max-width: 850px) {
-    .grade-grid {
-        width: 100%;
-        padding: 0 24px;
-        column-gap: 35px;
-    }
-}
-
-@media screen and (max-width: 600px) {
     .header {
-        padding: 0 16px;
+        padding: 0 15px;
     }
 
     .header-button {
-        padding: 6px 10px;
-        font-size: 14px;
+        padding: 0 10px;
+        font-size: 13px;
     }
 
     .profile-button {
@@ -238,6 +200,8 @@ a {
     }
 
     .grade-grid {
-        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        padding: 0 24px;
+        column-gap: 35px;
     }
 }

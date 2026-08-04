@@ -35,12 +35,19 @@ class Curriculum extends Model
             '高校3年生',
         ];
 
-        $curriculums = self::orderBy('id')->get()->groupBy('category');
+        $curriculums = self::orderBy('id')
+            ->get()
+            ->groupBy('category');
 
-        return collect($gradeOrder)->mapWithKeys(function ($gradeName) use ($curriculums) {
-            return [
-                $gradeName => $curriculums->get($gradeName, collect()),
-            ];
-        });
+        return collect($gradeOrder)->mapWithKeys(
+            function (string $gradeName) use ($curriculums) {
+                return [
+                    $gradeName => $curriculums->get(
+                        $gradeName,
+                        collect()
+                    ),
+                ];
+            }
+        );
     }
 }

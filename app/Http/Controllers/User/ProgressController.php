@@ -28,13 +28,11 @@ class ProgressController extends Controller
         $completedCurriculums =
             CurriculumProgress::getCompletedCurriculumIds($user->id);
 
-        $currentGradeName = '小学1年生';
-
         return view('user.progress', [
             'user' => $user,
             'gradeGroups' => $gradeGroups,
             'completedCurriculums' => $completedCurriculums,
-            'currentGradeName' => $currentGradeName,
+            'currentGradeName' => '小学1年生',
         ]);
     }
 }
