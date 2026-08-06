@@ -6,22 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Curriculum;
 use App\Models\CurriculumProgress;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 class ProgressController extends Controller
 {
     public function index()
     {
-        $user = User::firstOrCreate(
-            [
-                'email' => 'test@example.com',
-            ],
-            [
-                'name' => '山田太郎',
-                'kana' => 'ヤマダタロウ',
-                'password' => Hash::make('password'),
-            ]
-        );
+        $user = User::getProgressUser();
 
         $gradeGroups = Curriculum::getGroupedByGrade();
 

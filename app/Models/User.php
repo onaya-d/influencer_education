@@ -50,10 +50,27 @@ class User extends Authenticatable
     public static function register(array $data): self
     {
         return self::create([
-            'name'     => $data['username'], 
-            'kana'     => $data['kana'],     
+            'name'     => $data['username'],
+            'kana'     => $data['kana'],
             'email'    => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-    } 
-} 
+    }
+
+    /**
+     * 授業進捗画面表示用ユーザー取得
+     */
+    public static function getProgressUser(): self
+    {
+        return self::firstOrCreate(
+            [
+                'email' => 'test@example.com',
+            ],
+            [
+                'name'     => '山田太郎',
+                'kana'     => 'ヤマダタロウ',
+                'password' => Hash::make('password'),
+            ]
+        );
+    }
+}
