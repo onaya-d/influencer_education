@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+    color: #111111;
+    font-family: Arial, "Yu Gothic", Meiryo, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 40px;
+    background: #f8684c;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0 17px;
+    border-radius: 8px;
+    background: #079eaa;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.profile-button {
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.logout-link {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.progress-page {
+    width: 100%;
+    padding: 0 10px 50px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 6px;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    margin-left: 14px;
+}
+
+.profile-image-area {
+    width: 90px;
+    height: 116px;
+    overflow: hidden;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+}
+
+.profile-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.user-information {
+    margin-left: 12px;
+}
+
+.progress-title {
+    margin: 0 0 12px;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.current-grade {
+    display: flex;
+    align-items: center;
+}
+
+.current-grade-label {
+    font-size: 20px;
+}
+
+.current-grade-badge {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 7px 18px;
+    border-radius: 6px;
+    background: #78d7e4;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.grade-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 760px;
+    margin: 34px auto 0;
+    column-gap: 100px;
+    row-gap: 62px;
+}
+
+.grade-item {
+    min-width: 0;
+    text-align: center;
+}
+
+.grade-name {
+    display: inline-block;
+    min-width: 74px;
+    margin: 0 0 10px;
+    padding: 4px 12px;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.elementary-grade {
+    background: #73d5e4;
+}
+
+.junior-grade {
+    background: #68d5c8;
+}
+
+.high-grade {
+    background: #79c94f;
+}
+
+.curriculum-list {
+    text-align: left;
+}
+
+.curriculum-row {
+    display: flex;
+    align-items: center;
+    min-height: 24px;
+    white-space: nowrap;
+}
+
+.completed-area {
+    display: inline-block;
+    width: 48px;
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.completed-label {
+    color: #ff0000;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.curriculum-title {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+@media screen and (max-width: 850px) {
+    .header {
+        padding: 0 15px;
+    }
+
+    .header-button {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+    .profile-button {
+        font-size: 9px;
+    }
+
+    .grade-grid {
+        width: 100%;
+        padding: 0 24px;
+        column-gap: 35px;
+    }
+}
