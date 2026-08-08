@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>トップ画面</title>
     <style>
         body {
@@ -11,34 +12,42 @@
             background-color: #f8fafc;
             color: #888888;
         }
-        /* ヘッダーの簡易スタイル */
+        /* ヘッダーのスタイル（スマホ対応） */
         .header-menu {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: #f06343;
-            padding: 15px 30px;
+            padding: 12px 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
         }
         .nav-links div {
-            display: inline-block;
             background-color: #008b8b;
             color: white;
-            padding: 6px 15px;
+            padding: 6px 10px;
             border-radius: 4px;
-            margin-right: 10px;
-            font-size: 14px;
+            font-size: 13px;
+            white-space: nowrap;
         }
         .logout-btn {
-            color: white;
+            color: #ffffff !important;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
+            white-space: nowrap;
         }
 
         /* メインコンテナ */
         .container {
             max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 20px auto;
+            padding: 0 15px;
+            box-sizing: border-box;
         }
 
         /* バナー画像スライダーのスタイル */
@@ -46,7 +55,7 @@
             position: relative;
             width: 100%;
             max-width: 600px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 15px auto;
         }
         .slider-container {
             display: flex;
@@ -65,7 +74,7 @@
         .slide-item {
             flex-shrink: 0;
             width: 100%;
-            height: 250px;
+            height: 200px;
             scroll-snap-align: start;
             display: flex;
             justify-content: center;
@@ -81,7 +90,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         .dot {
             width: 12px;
@@ -95,60 +104,60 @@
             background-color: #888888;
         }
 
-        /* お知らせエリア全体のスタイル */
+        /* お知らせエリアのスタイル */
         .news-section {
             text-align: left;
-            margin-top: 40px;
+            margin-top: 20px;
         }
         .news-title {
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 18px;
+            margin-bottom: 12px;
             color: #555555;
         }
-        /* お知らせの枠線スタイル */
         .news-border-box {
             border: 1px solid #cbd5e1;
             border-radius: 8px;
-            padding: 10px 20px;
+            padding: 5px 15px;
             background-color: #ffffff;
         }
         .news-table {
             width: 100%;
             border-collapse: collapse;
         }
-        /* 一番下のお知らせだけ線がいらないので調整 */
-        .news-table tr:last-child td {
-            border-bottom: none;
-        }
         .news-table td {
-            padding: 15px 0;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 15px;
+            padding: 10px 0;
+            font-size: 13px;
+        }
+        .news-date {
+            width: 105px !important;
+            flex-shrink: 0;
+        }
+        .news-text {
+            word-break: break-all;
         }
     </style>
 </head>
 <body>
 
-   <!-- 共通ヘッダー -->
-<div class="header-menu">
-    <div class="nav-links">
-        <!-- 遷移先をすべて現在のページに指定 -->
-        <a href="/home" style="text-decoration: none; color: white;"><div>時間割</div></a>
-        <a href="/home" style="text-decoration: none; color: white;"><div>授業進捗</div></a>
-        <a href="/home" style="text-decoration: none; color: white;"><div style="background-color: #00a3a3;">プロフィール設定</div></a>
+    <!-- 共通ヘッダー -->
+    <div class="header-menu">
+        <div class="nav-links">
+            <a href="/home" style="text-decoration: none; color: white;"><div>時間割</div></a>
+            <a href="/home" style="text-decoration: none; color: white;"><div>授業進捗</div></a>
+            <a href="/home" style="text-decoration: none; color: white;"><div style="background-color: #00a3a3;">プロフィール設定</div></a>
+        </div>
+        <a href="/logout" class="logout-btn">ログアウト</a>
     </div>
-    <!-- ログアウトボタン -->
-    <a href="/logout" class="logout-btn" style="color: #000000; text-decoration: none;">ログアウト</a>
-</div>
+
     <div class="container">
         
         <!-- バナー画像スライダー -->
         <div class="slider-wrapper">
             <div class="slider-container" id="slider">
-                <div class="slide-item" id="slide-1">バナー画像</div>
-                <div class="slide-item" id="slide-2">バナー画像</div>
-                <div class="slide-item" id="slide-3">バナー画像</div>
-                <div class="slide-item" id="slide-4">バナー画像</div>
+                <div class="slide-item" id="slide-1">バナー画像 1</div>
+                <div class="slide-item" id="slide-2">バナー画像 2</div>
+                <div class="slide-item" id="slide-3">バナー画像 3</div>
+                <div class="slide-item" id="slide-4">バナー画像 4</div>
             </div>
         </div>
 
@@ -164,29 +173,27 @@
         <div class="news-section">
             <h2 class="news-title">お知らせ</h2>
             
-            <!-- 外枠だけのシンプルな角丸白ボックス -->
-            <div class="news-border-box" style="border: 1px solid #cbd5e1; border-radius: 8px; padding: 5px 15px; background-color: #ffffff;">
-                <table class="news-table" style="width: 100%; border-collapse: collapse; line-height: 1.2;">
-                    
+            <div class="news-border-box">
+                <table class="news-table">
                     <tr class="announcement-row" data-id="1" style="cursor: pointer;">
-                        <td class="news-date" style="padding: 4px 0; color: #000000; width: 130px; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
-                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                        <td class="news-date" style="color: #000000; font-weight: bold;">2023年7月23日</td>
+                        <td class="news-text" style="color: #000000;">ここにお知らせのタイトルがはいります</td>
                     </tr>
                     <tr class="announcement-row" data-id="2" style="cursor: pointer;">
-                        <td class="news-date" style="padding: 4px 0; color: #000000; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
-                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                        <td class="news-date" style="color: #000000; font-weight: bold;">2023年7月23日</td>
+                        <td class="news-text" style="color: #000000;">ここにお知らせのタイトルがはいります</td>
                     </tr>
                     <tr class="announcement-row" data-id="3" style="cursor: pointer;">
-                        <td class="news-date" style="padding: 4px 0; color: #000000; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
-                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                        <td class="news-date" style="color: #000000; font-weight: bold;">2023年7月23日</td>
+                        <td class="news-text" style="color: #000000;">ここにお知らせのタイトルがはいります</td>
                     </tr>
                     <tr class="announcement-row" data-id="4" style="cursor: pointer;">
-                        <td class="news-date" style="padding: 4px 0; color: #000000; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
-                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                        <td class="news-date" style="color: #000000; font-weight: bold;">2023年7月23日</td>
+                        <td class="news-text" style="color: #000000;">ここにお知らせのタイトルがはいります</td>
                     </tr>
                     <tr class="announcement-row" data-id="5" style="cursor: pointer;">
-                        <td class="news-date" style="padding: 4px 0; color: #000000; font-weight: bold; border: none; font-size: 14px;">2023年7月23日</td>
-                        <td class="news-text" style="padding: 4px 0; color: #000000; border: none; font-size: 14px;">ここにお知らせのタイトルがはいります</td>
+                        <td class="news-date" style="color: #000000; font-weight: bold;">2023年7月23日</td>
+                        <td class="news-text" style="color: #000000;">ここにお知らせのタイトルがはいります</td>
                     </tr>
                 </table>
             </div>
@@ -196,26 +203,56 @@
     </div>
 
     <script>
+        // スライダー制御
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        const totalSlides = 4;
+
+        function scrollToSlide(index) {
+            currentIndex = index;
+            const slideWidth = slider.clientWidth;
+            
+            slider.scrollTo({
+                left: slideWidth * index,
+                behavior: 'smooth'
+            });
+
+            updateDots();
+        }
+
+        function updateDots() {
+            dots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.style.backgroundColor = '#888888';
+                } else {
+                    dot.style.backgroundColor = '#cbd5e1';
+                }
+            });
+        }
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            scrollToSlide(currentIndex);
+        }, 3000);
+
+        updateDots();
+
+        // お知らせクリック制御
         document.querySelectorAll('.announcement-row').forEach(row => {
             row.addEventListener('click', () => {
-                // すでに「（準備中）」が表示されている場合は何もしない
                 if (row.querySelector('.pending-msg')) return;
 
-                // 「（準備中）」という文字要素を作る
                 const msg = document.createElement('span');
                 msg.className = 'pending-msg';
                 msg.innerText = ' （準備中）';
-                msg.style.color = '#ff4d4f';       // 目立つ赤色
-                msg.style.fontSize = '12px';       // 少し小さめの文字
+                msg.style.color = '#ff4d4f';
+                msg.style.fontSize = '12px';
                 msg.style.fontWeight = 'bold';
-                msg.style.marginLeft = '10px';     // タイトルとの間隔
+                msg.style.marginLeft = '10px';
 
-                // クリックされた行の「お知らせのタイトル」が入っているセル（.news-text）に文字を追加する
                 const textCell = row.querySelector('.news-text');
                 textCell.appendChild(msg);
-
-                // もし数秒後に消したい場合は、以下の1行のコメントアウト（//）を外してください
-                // setTimeout(() => msg.remove(), 2000);
             });
         });
     </script>
