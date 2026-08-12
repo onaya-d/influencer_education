@@ -28,6 +28,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/notice-list', [AdminNoticeController::class, 'index'])
         ->name('notice.list');
 
+    Route::delete('/notice/{id}', [AdminNoticeController::class, 'destroy'])
+        ->name('notice.destroy');
+
 });
 
 Route::get('/login', function () {

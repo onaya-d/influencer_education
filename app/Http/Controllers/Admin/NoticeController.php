@@ -15,4 +15,15 @@ class NoticeController extends Controller
             'articles' => $articles,
         ]);
     }
+
+    public function destroy(int $id)
+    {
+        $article = Article::findOrFail($id);
+
+        $article->delete();
+
+        return redirect()
+            ->route('admin.notice.list')
+            ->with('success', 'お知らせを削除しました。');
+    }
 }
