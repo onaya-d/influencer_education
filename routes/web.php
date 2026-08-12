@@ -24,17 +24,24 @@ Route::prefix('user')->name('user.')->group(function () {
 
 Route::get('/login', function () {
     return view('auth.login');
-})->name('show.login');
+})->name('login');
 
 Route::post('/login', [LoginController::class, 'login']);
-
-Route::get('/home', [TopController::class, 'index'])
-    ->name('home');
 
 Route::get('/logout', [TopController::class, 'logout'])
     ->name('logout');
 
-Route::get('/lessons/{id}', [LessonController::class, 'show']);
 
-Route::post('/lessons/{id}/complete', [LessonController::class, 'complete'])
-    ->name('lessons.complete');
+// ログイン必須のグループ（ここに追加します）
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/home', [TopController::class, 'index'])
+        ->name('home');
+
+    Route::get('/lessons/{id}', [LessonController::class, 'show'])
+        ->name('lessons.show');
+
+    Route::post('/lessons/{id}/complete', [LessonController::class, 'complete'])
+        ->name('lessons.complete');
+
+});
