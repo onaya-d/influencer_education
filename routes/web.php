@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\NoticeController as AdminNoticeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\TopController;
@@ -20,6 +21,13 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::get('/progress', [ProgressController::class, 'index'])
         ->name('progress');
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/notice-list', [AdminNoticeController::class, 'index'])
+        ->name('notice.list');
+
 });
 
 Route::get('/login', function () {
