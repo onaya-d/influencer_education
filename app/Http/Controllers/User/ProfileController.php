@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -38,54 +39,13 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(ProfileUpdateRequest $request)
     {
         $userId = $request->session()->get('profile_user_id');
 
         $user = User::findOrFail($userId);
 
-        $validated = $request->validate(
-            [
-                'name' => [
-                    'required',
-                    'string',
-                    'max:255',
-                ],
-                'kana' => [
-                    'required',
-                    'string',
-                    'max:255',
-                ],
-                'email' => [
-                    'required',
-                    'email',
-                    'max:255',
-                    'unique:users,email,' . $user->id,
-                ],
-                'profile_image' => [
-                    'nullable',
-                    'image',
-                    'max:2048',
-                ],
-            ],
-            [
-                'name.required' => 'ユーザーネームを入力してください。',
-                'name.string' => 'ユーザーネームは文字列で入力してください。',
-                'name.max' => 'ユーザーネームは255文字以内で入力してください。',
-
-                'kana.required' => 'カナを入力してください。',
-                'kana.string' => 'カナは文字列で入力してください。',
-                'kana.max' => 'カナは255文字以内で入力してください。',
-
-                'email.required' => 'メールアドレスを入力してください。',
-                'email.email' => 'メールアドレスの形式が正しくありません。',
-                'email.max' => 'メールアドレスは255文字以内で入力してください。',
-                'email.unique' => 'このメールアドレスはすでに使用されています。',
-
-                'profile_image.image' => '画像ファイルを選択してください。',
-                'profile_image.max' => 'プロフィール画像は2MB以下にしてください。',
-            ]
-        );
+        $validated = $request->validated();
 
         if ($request->hasFile('profile_image')) {
             if ($user->profile_image) {
