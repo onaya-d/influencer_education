@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NoticeRequest;
 use App\Models\Article;
-use Illuminate\Http\Request;
 
 class NoticeController extends Controller
 {
@@ -33,32 +33,9 @@ class NoticeController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(NoticeRequest $request)
     {
-        $validated = $request->validate(
-            [
-                'posted_date' => [
-                    'required',
-                    'date',
-                ],
-                'title' => [
-                    'required',
-                    'string',
-                    'max:255',
-                ],
-                'article_contents' => [
-                    'required',
-                    'string',
-                ],
-            ],
-            [
-                'posted_date.required' => '投稿日時を入力してください。',
-                'posted_date.date' => '投稿日時の形式が正しくありません。',
-                'title.required' => 'タイトルを入力してください。',
-                'title.max' => 'タイトルは255文字以内で入力してください。',
-                'article_contents.required' => '本文を入力してください。',
-            ]
-        );
+        $validated = $request->validated();
 
         Article::create($validated);
 
@@ -67,34 +44,11 @@ class NoticeController extends Controller
             ->with('success', 'お知らせを登録しました。');
     }
 
-    public function update(Request $request, int $id)
+    public function update(NoticeRequest $request, int $id)
     {
         $article = Article::findOrFail($id);
 
-        $validated = $request->validate(
-            [
-                'posted_date' => [
-                    'required',
-                    'date',
-                ],
-                'title' => [
-                    'required',
-                    'string',
-                    'max:255',
-                ],
-                'article_contents' => [
-                    'required',
-                    'string',
-                ],
-            ],
-            [
-                'posted_date.required' => '投稿日時を入力してください。',
-                'posted_date.date' => '投稿日時の形式が正しくありません。',
-                'title.required' => 'タイトルを入力してください。',
-                'title.max' => 'タイトルは255文字以内で入力してください。',
-                'article_contents.required' => '本文を入力してください。',
-            ]
-        );
+        $validated = $request->validated();
 
         $article->update($validated);
 
