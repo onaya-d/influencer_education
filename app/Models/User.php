@@ -23,6 +23,7 @@ class User extends Authenticatable
         'kana',
         'email',
         'password',
+        'profile_image'
     ];
 
     /**
