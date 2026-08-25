@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\NoticeController as AdminNoticeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\ProgressController;
 use App\Http\Controllers\User\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('user')->name('user.')->group(function () {
+
     Route::get('/register', [RegisterController::class, 'showRegisterForm'])
         ->name('show.register');
 
@@ -21,6 +23,12 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::get('/progress', [ProgressController::class, 'index'])
         ->name('progress');
+
+    Route::get('/profile', [ProfileController::class, 'index'])
+        ->name('profile');
+
+    Route::post('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -28,9 +36,20 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/notice-list', [AdminNoticeController::class, 'index'])
         ->name('notice.list');
 
+    Route::get('/notice/create', [AdminNoticeController::class, 'create'])
+        ->name('notice.create');
+
+    Route::post('/notice', [AdminNoticeController::class, 'store'])
+        ->name('notice.store');
+
+    Route::get('/notice/{id}/edit', [AdminNoticeController::class, 'edit'])
+        ->name('notice.edit');
+
+    Route::put('/notice/{id}', [AdminNoticeController::class, 'update'])
+        ->name('notice.update');
+
     Route::delete('/notice/{id}', [AdminNoticeController::class, 'destroy'])
         ->name('notice.destroy');
-
 });
 
 Route::get('/login', function () {
