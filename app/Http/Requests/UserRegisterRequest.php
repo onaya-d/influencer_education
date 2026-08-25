@@ -22,7 +22,7 @@ class UserRegisterRequest extends FormRequest
         return [
             'username'              => 'required',
             'kana'                  => 'required|regex:/^[ァ-ヶー]+$/u', // 全角カタカナの正規表現
-            'email'                 => 'required|email|unique:users,email', // usersテーブルのemailカラムと重複チェック
+           'email'                 => 'required|email|max:255|unique:users,email', // max:255 
             'password'              => 'required|alpha_num|min:8|max:32|confirmed', // alpha_numで半角英数字、confirmedで一致チェック
             'password_confirmation' => 'required', // 一致チェック用の確認パスワード項目
         ];
@@ -44,6 +44,7 @@ class UserRegisterRequest extends FormRequest
             // メールアドレス
             'email.required'    => 'メールアドレスを入力してください。',
             'email.email'       => '正しいメールアドレスの形式で入力してください。',
+            'email.max'         => 'メールアドレスは255文字以内で入力してください。',
             'email.unique'      => 'このメールアドレスは既に登録されています。',
 
             // パスワード
