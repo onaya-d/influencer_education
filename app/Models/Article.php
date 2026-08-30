@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,17 +13,19 @@ class Article extends Model
     protected $table = 'articles';
 
     protected $fillable = [
-        'posted_date',
         'title',
+        'posted_date',
         'article_contents',
     ];
 
     protected $casts = [
-        'posted_date' => 'date',
+        'posted_date' => 'datetime',
     ];
 
-    public static function getNoticeList()
+    public static function getNoticeList(): Collection
     {
-        return self::orderBy('posted_date', 'desc')->get();
+        return self::orderByDesc('posted_date')
+            ->orderByDesc('id')
+            ->get();
     }
 }

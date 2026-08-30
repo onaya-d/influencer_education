@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\NoticeController as AdminNoticeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\User\NoticeController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\ProgressController;
 use App\Http\Controllers\User\RegisterController;
@@ -23,6 +24,9 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::get('/progress', [ProgressController::class, 'index'])
         ->name('progress');
+
+    Route::get('/notice/{id}', [NoticeController::class, 'show'])
+        ->name('notice');
 
     Route::get('/profile', [ProfileController::class, 'index'])
         ->name('profile');
