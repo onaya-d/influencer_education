@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\User\NoticeController;
+use App\Http\Controllers\User\PasswordController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\ProgressController;
 use App\Http\Controllers\User\RegisterController;
@@ -33,6 +34,12 @@ Route::prefix('user')->name('user.')->group(function () {
 
     Route::post('/profile', [ProfileController::class, 'update'])
         ->name('profile.update');
+
+    Route::get('/password', [PasswordController::class, 'index'])
+        ->name('password');
+
+    Route::post('/password', [PasswordController::class, 'update'])
+        ->name('password.update');
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
