@@ -14,6 +14,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('user')->name('user.')->group(function () {
+
     Route::get('/register', [RegisterController::class, 'showRegisterForm'])
         ->name('show.register');
 
