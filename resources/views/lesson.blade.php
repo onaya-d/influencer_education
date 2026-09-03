@@ -30,13 +30,17 @@
 
         <!-- メインの左右レイアウト -->
         <div class="content-wrapper">
-            <!-- 左：動画プレイヤー（テスト用に条件分岐を一時無効化） -->
-            <div class="video-container">
-                <!-- テスト用の動画URLを直接指定してプレイヤーを常に表示 -->
-                <video controls width="100%" height="100%" style="object-fit: contain;">
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-                    お使いのブラウザは動画配信に対応していません。
-                </video>
+        
+           <!-- 左：動画プレイヤー（YouTubeなどの場合） -->
+           <div class="video-container">
+                <iframe 
+                 width="100%" 
+                 height="100%" 
+                 src="{{ $lesson->video_url }}" 
+                 title="動画プレイヤー" 
+                 frameborder="0" 
+                 allowfullscreen>
+                </iframe>
             </div>
 
             <!-- 右：受講完了ボタン -->
